@@ -16,15 +16,15 @@ const navLinks = [
     { name: 'Get In Touch', href: '/contact', hasDropdown: true },
 ]
 
-const socialIcons = [
-    { icon: <FaFacebookF />, href: '#', color: '#3b5998' },
-    { icon: <FaTwitter />, href: '#', color: '#1da1f2' },
-    { icon: <FaInstagram />, href: '#', color: '#e1306c' },
-    { icon: <FaLinkedinIn />, href: '#', color: '#0077b5' },
-    { icon: <FaPinterestP />, href: '#', color: '#e60023' },
-    { icon: <FaTelegramPlane />, href: '#', color: '#0088cc' },
-    { icon: <FaYoutube />, href: '#', color: '#ff0000' },
-]
+// const socialIcons = [
+//     { icon: <FaFacebookF />, href: '#', color: '#3b5998' },
+//     { icon: <FaTwitter />, href: '#', color: '#1da1f2' },
+//     { icon: <FaInstagram />, href: '#', color: '#e1306c' },
+//     { icon: <FaLinkedinIn />, href: '#', color: '#0077b5' },
+//     { icon: <FaPinterestP />, href: '#', color: '#e60023' },
+//     { icon: <FaTelegramPlane />, href: '#', color: '#0088cc' },
+//     { icon: <FaYoutube />, href: '#', color: '#ff0000' },
+// ]
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
