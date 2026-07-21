@@ -4,27 +4,30 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi'
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP, FaTelegramPlane, FaYoutube } from 'react-icons/fa'
 
 const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about', hasDropdown: false },
+    {
+        name: 'About Us',
+        href: '/about/company-profile',
+        dropdown: [
+            { name: 'Company Profile', href: '/about/company-profile' },
+            { name: "Founder's Message", href: '/about/founder-message' },
+        ],
+    },
     { name: 'E Magazine', href: '/emagazine' },
     { name: 'Clientele', href: '/clientele' },
-    { name: 'Trade Exhibition', href: '/exhibitions', hasDropdown: true },
-    { name: 'Our Forms', href: '/contact', hasDropdown: true },
-    { name: 'Get In Touch', href: '/contact', hasDropdown: true },
+    {
+        name: 'Trade Exhibition',
+        href: '/exhibitions/news',
+        dropdown: [
+            { name: 'News and Events', href: '/exhibitions/news' },
+            { name: 'Exhibition Gallery', href: '/exhibitions/gallery' },
+            { name: 'Trade Show Calendar', href: '/exhibitions/calendar' },
+        ],
+    },
+    { name: 'Contact Us', href: '/contact' },
 ]
-
-// const socialIcons = [
-//     { icon: <FaFacebookF />, href: '#', color: '#3b5998' },
-//     { icon: <FaTwitter />, href: '#', color: '#1da1f2' },
-//     { icon: <FaInstagram />, href: '#', color: '#e1306c' },
-//     { icon: <FaLinkedinIn />, href: '#', color: '#0077b5' },
-//     { icon: <FaPinterestP />, href: '#', color: '#e60023' },
-//     { icon: <FaTelegramPlane />, href: '#', color: '#0088cc' },
-//     { icon: <FaYoutube />, href: '#', color: '#ff0000' },
-// ]
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -70,64 +73,40 @@ export default function Navbar() {
 
                 {/* Social icons — desktop */}
                 <div className="hidden lg:flex items-center gap-2">
-                    {socialIcons.map((s, i) => (
+                </div>
 
-                       <a key = { i }
-              href = { s.href }
-              target = "_blank"
-              rel = "noopener noreferrer"
-              className = "w-7 h-7 rounded-full flex items-center justify-center text-xs border transition-transform duration-200 hover:scale-110"
-              style = {{ color: s.color, borderColor: s.color }}
-            >
-                    {s.icon}
-                </a>
-          ))}
+                {/* Hamburger button — mobile only */}
+                <button
+                    className="lg:hidden text-slate-800"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                >
+                    {menuOpen ? <HiX size={26} /> : <HiMenu size={26} />}
+                </button>
             </div>
 
-            {/* Hamburger button — mobile only */}
-            <button
-                className="lg:hidden text-slate-800"
-                onClick={() => setMenuOpen(!menuOpen)}
-            >
-                {menuOpen ? <HiX size={26} /> : <HiMenu size={26} />}
-            </button>
-        </div>
-
-      {/* Mobile menu */ }
-    {
-        menuOpen && (
-            <div className="lg:hidden bg-white px-4 pb-4 shadow-md">
-                <ul className="flex flex-col gap-3">
-                    {navLinks.map((link, i) => (
-                        <li key={link.name}>
-                            <Link
-                                href={link.href}
-                                className={`block font-semibold py-1 border-b border-gray-100 ${i === 0 ? 'text-red-500' : 'text-slate-800'
-                                    }`}
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                {link.name}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-                <div className="flex items-center gap-3 mt-4">
-                    {socialIcons.map((s, i) => (
-
-                        <a key={i}
-                            href={s.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-7 h-7 rounded-full flex items-center justify-center text-xs border"
-                            style={{ color: s.color, borderColor: s.color }}
-                        >
-                            {s.icon}
-                        </a>
-                    ))}
-                </div>
-            </div >
-        )
-    }
-    </nav >
-  )
+            {/* Mobile menu */}
+            {
+                menuOpen && (
+                    <div className="lg:hidden bg-white px-4 pb-4 shadow-md">
+                        <ul className="flex flex-col gap-3">
+                            {navLinks.map((link, i) => (
+                                <li key={link.name}>
+                                    <Link
+                                        href={link.href}
+                                        className={`block font-semibold py-1 border-b border-gray-100 ${i === 0 ? 'text-red-500' : 'text-slate-800'
+                                            }`}
+                                        onClick={() => setMenuOpen(false)}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="flex items-center gap-3 mt-4">
+                        </div>
+                    </div >
+                )
+            }
+        </nav >
+    )
 }
