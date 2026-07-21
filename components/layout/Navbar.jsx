@@ -6,27 +6,35 @@ import Image from 'next/image'
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi'
 
 const navLinks = [
-    { name: 'Home', href: '/' },
-    {
-        name: 'About Us',
-        href: '/about/company-profile',
-        dropdown: [
-            { name: 'Company Profile', href: '/about/company-profile' },
-            { name: "Founder's Message", href: '/about/founder-message' },
-        ],
-    },
-    { name: 'E Magazine', href: '/emagazine' },
-    { name: 'Clientele', href: '/clientele' },
-    {
-        name: 'Trade Exhibition',
-        href: '/exhibitions/news',
-        dropdown: [
-            { name: 'News and Events', href: '/exhibitions/news' },
-            { name: 'Exhibition Gallery', href: '/exhibitions/gallery' },
-            { name: 'Trade Show Calendar', href: '/exhibitions/calendar' },
-        ],
-    },
-    { name: 'Contact Us', href: '/contact' },
+  { name: 'Home', href: '/' },
+  {
+    name: 'About Us',
+    href: '/about/company-profile',
+    dropdown: [
+      { name: 'Company Profile', href: '/about/company-profile' },
+      { name: "Founder's Message", href: '/about/founder-message' },
+    ],
+  },
+  { name: 'E Magazine', href: '/emagazine' },
+  { name: 'Clientele', href: '/clientele' },
+  {
+    name: 'Trade Exhibition',
+    href: '/exhibitions/news',
+    dropdown: [
+      { name: 'News and Events', href: '/exhibitions/news' },
+      { name: 'Exhibition Gallery', href: '/exhibitions/gallery' },
+      { name: 'Trade Show Calendar', href: '/exhibitions/calendar' },
+    ],
+  },
+  {
+    name: 'Our Forms',
+    href: '/contact',
+    dropdown: [
+      { name: 'Contact Form', href: '/contact' },
+      { name: 'Subscription Form', href: '/contact' },
+    ],
+  },
+  { name: 'Get In Touch', href: '/social' },
 ]
 
 export default function Navbar() {
@@ -36,7 +44,7 @@ export default function Navbar() {
         <nav
             className="fixed top-0 left-0 w-full z-50 shadow-md"
             style={{
-                background: 'linear-gradient(180deg, #eef3f7 0%, #c9d6df 100%)',
+                background: 'linear-gradient(180deg, #f5f7f9 0%, #e2e8ee 35%, #b8c4cf 65%, #8fa0ae 100%)',
             }}
         >
             <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
