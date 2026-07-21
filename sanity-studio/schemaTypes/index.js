@@ -1,3 +1,4 @@
+import siteSettings from './siteSettings'
 import slider from './slider'
 import about from './about'
 import news from './news'
@@ -8,6 +9,7 @@ import social from './social'
 import magazine from './magazine'
 
 export const schemaTypes = [
+    siteSettings,
     slider,
     about,
     news,

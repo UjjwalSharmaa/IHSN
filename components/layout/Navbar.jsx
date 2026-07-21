@@ -6,35 +6,35 @@ import Image from 'next/image'
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi'
 
 const navLinks = [
-  { name: 'Home', href: '/' },
-  {
-    name: 'About Us',
-    href: '/about/company-profile',
-    dropdown: [
-      { name: 'Company Profile', href: '/about/company-profile' },
-      { name: "Founder's Message", href: '/about/founder-message' },
-    ],
-  },
-  { name: 'E Magazine', href: '/emagazine' },
-  { name: 'Clientele', href: '/clientele' },
-  {
-    name: 'Trade Exhibition',
-    href: '/exhibitions/news',
-    dropdown: [
-      { name: 'News and Events', href: '/exhibitions/news' },
-      { name: 'Exhibition Gallery', href: '/exhibitions/gallery' },
-      { name: 'Trade Show Calendar', href: '/exhibitions/calendar' },
-    ],
-  },
-  {
-    name: 'Our Forms',
-    href: '/contact',
-    dropdown: [
-      { name: 'Contact Form', href: '/contact' },
-      { name: 'Subscription Form', href: '/contact' },
-    ],
-  },
-  { name: 'Get In Touch', href: '/social' },
+    { name: 'Home', href: '/' },
+    {
+        name: 'About Us',
+        href: '/about/company-profile',
+        dropdown: [
+            { name: 'Company Profile', href: '/about/company-profile' },
+            { name: "Founder's Message", href: '/about/founder-message' },
+        ],
+    },
+    { name: 'E Magazine', href: '/emagazine' },
+    { name: 'Clientele', href: '/clientele' },
+    {
+        name: 'Trade Exhibition',
+        href: '/exhibitions/news',
+        dropdown: [
+            { name: 'News and Events', href: '/exhibitions/news' },
+            { name: 'Exhibition Gallery', href: '/exhibitions/gallery' },
+            { name: 'Trade Show Calendar', href: '/exhibitions/calendar' },
+        ],
+    },
+    {
+        name: 'Our Forms',
+        href: '/contact',
+        dropdown: [
+            { name: 'Contact Form', href: '/contact' },
+            { name: 'Subscription Form', href: '/contact' },
+        ],
+    },
+    { name: 'Get In Touch', href: '/social' },
 ]
 
 export default function Navbar() {
@@ -71,10 +71,23 @@ export default function Navbar() {
                                     ? 'text-red-500 hover:text-red-600'
                                     : 'text-slate-800 hover:text-blue-700'
                                     }`}
-                            >
-                                {link.name}
-                                {link.hasDropdown && <HiChevronDown size={14} />}
-                            </Link>
+                            />
+                            {link.name}
+                            {link.dropdown && (
+                                <ul className="absolute left-0 top-full mt-1 w-56 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
+                                    {link.dropdown.map((subLink) => (
+                                        <li key={subLink.name}>
+                                            <Link
+                                                href={subLink.href}
+                                                className="block px-4 py-2 text-sm text-slate-800 hover:bg-blue-100 hover:text-blue-700"
+                                                onClick={() => setMenuOpen(false)}
+                                            >
+                                                {subLink.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </li>
                     ))}
                 </ul>
