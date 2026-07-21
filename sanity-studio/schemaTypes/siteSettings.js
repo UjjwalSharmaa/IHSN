@@ -1,6 +1,6 @@
 export default {
     name: 'siteSettings',
-    title: 'Site Settings',
+    title: 'Logos',
     type: 'document',
     fields: [
         {
