@@ -1,3 +1,4 @@
+import Header from '@/components/layout/Header'
 import Image from "next/image";
 import HomeSlider from '@/components/home/HomeSlider'
 import AboutSection from '@/components/home/AboutSection'
@@ -9,12 +10,13 @@ import SubscriptionForm from "@/components/forms/SubscriptionForm";
 export default function Home() {
   return (
     <main>
-        <HomeSlider />
-        <AboutSection />
-        <NewsSection />
-        <ExhibitionPreview/>
-        <GalleryPreview/>
-        <SubscriptionForm/>
+      <Header />
+      <HomeSlider />
+      <AboutSection />
+      <NewsSection />
+      <ExhibitionPreview />
+      <GalleryPreview />
+      <SubscriptionForm />
     </main>
   );
 }
