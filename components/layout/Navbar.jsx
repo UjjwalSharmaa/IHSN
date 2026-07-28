@@ -16,6 +16,7 @@ const navLinks = [
         ],
     },
     { name: 'E Magazine', href: '/emagazine' },
+    { name: 'Social Media Platforms', href: '/social' },
     { name: 'Clientele', href: '/clientele' },
     {
         name: 'Trade Exhibition',
@@ -34,7 +35,6 @@ const navLinks = [
             { name: 'Subscription Form', href: '/contact' },
         ],
     },
-    { name: 'Get In Touch', href: '/social' },
 ]
 
 export default function Navbar() {
