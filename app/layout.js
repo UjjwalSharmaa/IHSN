@@ -1,5 +1,4 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from '@/components/layout/Header'
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
 import { Inter } from 'next/font/google'
@@ -43,7 +42,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Header />
       <body className={inter.className}>
         <Navbar />
         <main className="pt-16">
