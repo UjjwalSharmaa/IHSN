@@ -1,4 +1,4 @@
-import UpcomingExhibitions from '@/components/exhibitions/UpcomingExhibitions'
+import UpcomingExhibitions from '@/components/exhibitions/UpcomingExhibition'
 
 export const metadata = {
   title: 'Trade Show Calendar',
