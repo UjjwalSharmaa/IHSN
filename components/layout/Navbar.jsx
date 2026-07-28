@@ -39,6 +39,7 @@ const navLinks = [
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [mobileDropdown, setMobileDropdown] = useState(null)
 
     return (
         <nav
@@ -67,20 +68,22 @@ export default function Navbar() {
                         <li key={link.name} className="relative group">
                             <Link
                                 href={link.href}
-                                className={`flex items-center gap-1 font-semibold text-sm transition-colors duration-200 ${i === 0
+                                className={`flex items-center gap-1 font-semibold text-sm transition-colors duration-200 cursor-pointer ${i === 0
                                     ? 'text-red-500 hover:text-red-600'
                                     : 'text-slate-800 hover:text-blue-700'
                                     }`}
-                            />
-                            {link.name}
+                            >
+                                {link.name}
+                                {link.dropdown && <HiChevronDown size={14} />}
+                            </Link>
+
                             {link.dropdown && (
                                 <ul className="absolute left-0 top-full mt-1 w-56 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
                                     {link.dropdown.map((subLink) => (
                                         <li key={subLink.name}>
                                             <Link
                                                 href={subLink.href}
-                                                className="block px-4 py-2 text-sm text-slate-800 hover:bg-blue-100 hover:text-blue-700"
-                                                onClick={() => setMenuOpen(false)}
+                                                className="block px-4 py-2 text-sm text-slate-800 hover:bg-blue-100 hover:text-blue-700 cursor-pointer"
                                             >
                                                 {subLink.name}
                                             </Link>
@@ -92,10 +95,6 @@ export default function Navbar() {
                     ))}
                 </ul>
 
-                {/* Social icons — desktop */}
-                <div className="hidden lg:flex items-center gap-2">
-                </div>
-
                 {/* Hamburger button — mobile only */}
                 <button
                     className="lg:hidden text-slate-800"
@@ -106,28 +105,55 @@ export default function Navbar() {
             </div>
 
             {/* Mobile menu */}
-            {
-                menuOpen && (
-                    <div className="lg:hidden bg-white px-4 pb-4 shadow-md">
-                        <ul className="flex flex-col gap-3">
-                            {navLinks.map((link, i) => (
-                                <li key={link.name}>
+            {menuOpen && (
+                <div className="lg:hidden bg-white px-4 pb-4 shadow-md max-h-[80vh] overflow-y-auto">
+                    <ul className="flex flex-col gap-1">
+                        {navLinks.map((link, i) => (
+                            <li key={link.name}>
+                                <div className="flex items-center justify-between">
                                     <Link
                                         href={link.href}
-                                        className={`block font-semibold py-1 border-b border-gray-100 ${i === 0 ? 'text-red-500' : 'text-slate-800'
-                                            }`}
-                                        onClick={() => setMenuOpen(false)}
+                                        className={`block font-semibold py-2 flex-1 ${i === 0 ? 'text-red-500' : 'text-slate-800'}`}
+                                        onClick={() => !link.dropdown && setMenuOpen(false)}
                                     >
                                         {link.name}
                                     </Link>
-                                </li>
-                            ))}
-                        </ul>
-                        <div className="flex items-center gap-3 mt-4">
-                        </div>
-                    </div >
-                )
-            }
-        </nav >
+                                    {link.dropdown && (
+                                        <button
+                                            onClick={() =>
+                                                setMobileDropdown(mobileDropdown === link.name ? null : link.name)
+                                            }
+                                            className="p-2"
+                                        >
+                                            <HiChevronDown
+                                                size={16}
+                                                className={`transition-transform ${mobileDropdown === link.name ? 'rotate-180' : ''}`}
+                                            />
+                                        </button>
+                                    )}
+                                </div>
+
+                                {link.dropdown && mobileDropdown === link.name && (
+                                    <ul className="pl-4 flex flex-col gap-1 pb-2">
+                                        {link.dropdown.map((subLink) => (
+                                            <li key={subLink.name}>
+                                                <Link
+                                                    href={subLink.href}
+                                                    className="block py-1.5 text-sm text-slate-600"
+                                                    onClick={() => setMenuOpen(false)}
+                                                >
+                                                    {subLink.name}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                                <div className="border-b border-gray-100" />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+        </nav>
     )
 }
