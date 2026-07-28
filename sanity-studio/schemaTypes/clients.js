@@ -22,5 +22,12 @@ export default {
             type: 'url',
             description: 'Optional — leave empty for non-clickable logo',
         },
+        {
+            name: 'showOnHome',
+            title: 'Show on Home Page',
+            type: 'boolean',
+            description: 'Toggle to show this logo in the home page slider',
+            initialValue: false,
+        },
     ],
 }
