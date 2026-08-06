@@ -1,12 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP, FaTelegramPlane, FaYoutube } from 'react-icons/fa'
+import { FaFacebookF, FaX, FaInstagram, FaLinkedinIn, FaPinterestP, FaTelegramPlane, FaYoutube } from 'react-icons/fa'
 import { getSocialLinks } from '@/lib/sanity'
+import { FaX } from 'react-icons/fa6'
 
 const platformConfig = {
     'Facebook': { icon: <FaFacebookF />, bg: '#3b5998' },
-    'Twitter / X': { icon: <FaTwitter />, bg: '#1da1f2' },
+    'Twitter / X': { icon: <FaX/>, bg: '#1da1f2' },
     'Instagram': { icon: <FaInstagram />, bg: '#e1306c' },
     'LinkedIn': { icon: <FaLinkedinIn />, bg: '#0077b5' },
     'Pinterest': { icon: <FaPinterestP />, bg: '#e60023' },
