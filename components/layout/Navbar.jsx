@@ -97,7 +97,7 @@ export default function Navbar() {
 
                 {/* Enquire Now button — desktop */}
 
-                <a href="https://wa.me/919999999999?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20IHSN"
+                <a href="https://wa.me/919868607424?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20IHSN"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hidden lg:inline-flex relative items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold text-sm px-5 py-2 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg group/btn"
@@ -168,7 +168,7 @@ export default function Navbar() {
                             ))}
                         </ul>
 
-                        <a href="https://wa.me/919999999999?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20IHSN"
+                        <a href="https://wa.me/919868607424?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20IHSN"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-2 bg-green-600 text-white font-semibold text-sm px-5 py-3 rounded-full mt-3"
