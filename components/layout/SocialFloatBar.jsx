@@ -1,13 +1,12 @@
 'use client'
-
 import { useEffect, useState } from 'react'
-import { FaFacebookF, FaX, FaInstagram, FaLinkedinIn, FaPinterestP, FaTelegramPlane, FaYoutube } from 'react-icons/fa'
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP, FaTelegramPlane, FaYoutube } from 'react-icons/fa'
 import { getSocialLinks } from '@/lib/sanity'
-import { FaX } from 'react-icons/fa6'
+
 
 const platformConfig = {
     'Facebook': { icon: <FaFacebookF />, bg: '#3b5998' },
-    'Twitter / X': { icon: <FaX/>, bg: '#1da1f2' },
+    'Twitter / X': { icon: <FaTwitter />, bg: '#1da1f2' },
     'Instagram': { icon: <FaInstagram />, bg: '#e1306c' },
     'LinkedIn': { icon: <FaLinkedinIn />, bg: '#0077b5' },
     'Pinterest': { icon: <FaPinterestP />, bg: '#e60023' },
@@ -35,7 +34,7 @@ export default function SocialFloatBar() {
                         target="_blank"
                         rel="noopener noreferrer"
                         title={social.platform}
-                        className="w-11 h-11 flex items-center justify-center text-white text-lg transition-all duration-300 hover:w-14 hover:brightness-110"
+                        className="w-11 h-11 flex items-center justify-center text-white text-lg transition-all duration-300 hover:w-14 hover:rounded-md  hover:brightness-110"
                         style={{ backgroundColor: config.bg }
                         }
                     >
